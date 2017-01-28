@@ -1,0 +1,38 @@
+<h2>Show autor</h2>
+
+<ul>
+
+  <li>
+    <strong>Ime:</strong>
+    <%= @autor.ime %>
+  </li>
+
+  <li>
+    <strong>Prezime:</strong>
+    <%= @autor.prezime %>
+  </li>
+
+  <li>
+    <strong>Titula:</strong>
+    <%= @autor.titula %>
+  </li>
+
+  <li>
+    <strong>Zvanje:</strong>
+    <%= @autor.zvanje %>
+  </li>
+
+  <li>
+    <strong>Spol:</strong>
+    <%= @autor.spol %>
+  </li>
+
+  <li>
+    <strong>Opis:</strong>
+    <%= @autor.opis %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: autor_path(@conn, :edit, @autor) %>
+<%= link "Back", to: autor_path(@conn, :index) %>

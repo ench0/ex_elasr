@@ -1,0 +1,90 @@
+mix local.hex
+mix archive.install https://github.com/phoenixframework/archives/raw/master/phoenix_new.ez
+
+
+mix phoenix.new elasr
+mv elasr/ ex_elasr
+cd ex_elasr/
+
+
+
+
+
+mix ecto.create
+mix phoenix.gen.html Broj brojevi naslov:string slika:string fajl:string
+mix phoenix.gen.html Kategorija kategorije naslov:string opis:string
+mix phoenix.gen.html Autor autori ime:string prezime:string titula:string zvanje:string spol:boolean opis:string
+mix phoenix.gen.html Tekst tekstovi naslov:string ukratko:string tekst:string autor_id:references:autori kategorija_id:references:kategorije slike:{:array, :string} fajlovi:{:array, :string} slug:string timestamps
+mix phoenix.gen.html Komentar komentari komentar:string email:string meta:map tekst_id:references:tekstovi timestamps
+
+
+
+nano web/router.ex 
+#    resources "/questionnaires", QuestionnaireController        
+mix ecto.migrate
+mix phoenix.server
+
+npm install --save font-awesome
+npm install --save  materialize-css
+
+mix phoenix.gen.html Question questions content:string questionnaire_id:integer 
+mix phoenix.gen.html User users name:string
+
+mix ecto.gen.migration add_title_to_questionnaire
+
+mix phoenix.gen.html Option options body:string question_id:references:questions type:string
+
+mix phoenix.gen.html Submission submissions list:string question_id:references:questions questionnaire_id:references:questionnaires
+
+mix ecto.gen.migration change_submission_list_column
+#  def change do
+#    alter table(:submissions) do
+#      remove :list
+#      remove :question_id
+#      add :list, {:array, :string}#{:map, :string}
+#    end
+#  end
+
+#In your migration:
+create unique_index(:users, [:email])
+#Then in your model:
+cast(user, params, ~w(email), ~w())
+|> unique_constraint(:email)
+
+
+mix ecto.gen.migration drop_submission
+#  def change do
+#    drop table(:submissions)
+#  end
+
+mix phoenix.gen.html Submission submissions list:map questionnaire_id:references:questionnaires
+
+mix ecto.rollback -n 1
+mix phoenix.gen.html Submission submissions list:string questionnaire_id:references:questionnaires
+
+
+{:array, inner_type}
+
+mix phoenix.gen.html Submission2 submissions2 answers:array:string map questionnaire_id:references:questionnaires
+
+npm install sortablejs --save
+
+
+
+###
+  def change do
+    alter table(:topics) do
+      add :user_id, references(:users) #reference to other table in our db
+    end
+  end
+###
+
+
+npm install
+mix local.hex
+mix hex
+mix deps.get
+mix phoenix.routes
+
+#2 lists into map
+Enum.zip(list1, list2) |> Enum.into(%{})

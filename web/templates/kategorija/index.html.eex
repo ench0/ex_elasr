@@ -1,0 +1,28 @@
+<h2>Listing kategorije</h2>
+
+<table class="ui striped table">
+  <thead>
+    <tr>
+      <th>Naslov</th>
+      <th>Opis</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for kategorija <- @kategorije do %>
+    <tr>
+      <td><%= kategorija.naslov %></td>
+      <td><%= kategorija.opis %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: kategorija_path(@conn, :show, kategorija), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: kategorija_path(@conn, :edit, kategorija), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: kategorija_path(@conn, :delete, kategorija), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New kategorija", to: kategorija_path(@conn, :new) %>

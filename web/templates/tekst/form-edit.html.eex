@@ -1,0 +1,70 @@
+<%= form_for @changeset, @action, fn f -> %>
+  <%= if @changeset.action do %>
+    <div class="ui negative message transition">
+      <p>Nešto nije u redu, pogledajte ispod.</p>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= label f, :naslov, class: "control-label" %>
+    <%= text_input f, :naslov, class: "form-control" %>
+    <%= error_tag f, :naslov %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :ukratko, class: "control-label" %>
+    <%= text_input f, :ukratko, class: "form-control" %>
+    <%= error_tag f, :ukratko %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :tekst, class: "control-label" %>
+    <% if @tekst.tekst == "none", do: value = "", else: value = @tekst.tekst %>
+    <%= text_input f, :tekst, value: value %>
+    <%= error_tag f, :tekst %>
+  </div>
+
+  <%= for slika <- @tekst.slike do %>
+  <div>
+    <% slika_atom = String.to_atom(elem(slika,0)) %>
+    <% slika_value = elem(slika,1) %>
+    <%= label f, slika_atom %>
+    <%= text_input f, slika_atom, value: slika_value %>
+    <%= error_tag f, slika_atom %>
+  </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= label f, :fajlovi, class: "control-label" %>
+    <%= text_input f, :fajlovi, class: "form-control" %>
+    <%= error_tag f, :fajlovi %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :slug, class: "control-label" %>
+    <%= text_input f, :slug, class: "form-control" %>
+    <%= error_tag f, :slug %>
+  </div>
+
+  <%= hidden_input f, :slike, value: "" %>
+
+
+
+
+
+
+  <!-- submit -->
+  <div class="ui basic segment">
+    <%= submit class: "circular ui positive button" do %>
+      <i class="icon user"></i>
+      Submit
+    <% end %>
+    <%= link to: tekst_path(@conn, :show, @tekst.slug), class: "circular ui primary icon button", data_content: "Prikaži" do %>
+      <i class="icon user"></i>
+    <% end %>
+    <%= link to: tekst_path(@conn, :delete, @tekst), method: :delete, data: [confirm: "Are you sure?"], class: "circular ui negative icon button", data_content: "Izbriši" do %>
+      <i class="icon remove"></i>
+    <% end %>
+  </div>
+
+<% end %>

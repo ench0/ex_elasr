@@ -1,0 +1,36 @@
+<h2>Listing autori</h2>
+
+<table class="ui striped table">
+  <thead>
+    <tr>
+      <th>Ime</th>
+      <th>Prezime</th>
+      <th>Titula</th>
+      <th>Zvanje</th>
+      <th>Spol</th>
+      <th>Opis</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for autor <- @autori do %>
+    <tr>
+      <td><%= autor.ime %></td>
+      <td><%= autor.prezime %></td>
+      <td><%= autor.titula %></td>
+      <td><%= autor.zvanje %></td>
+      <td><%= autor.spol %></td>
+      <td><%= autor.opis %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: autor_path(@conn, :show, autor), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: autor_path(@conn, :edit, autor), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: autor_path(@conn, :delete, autor), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New autor", to: autor_path(@conn, :new) %>

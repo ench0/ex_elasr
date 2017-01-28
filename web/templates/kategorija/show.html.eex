@@ -1,0 +1,18 @@
+<h2>Show kategorija</h2>
+
+<ul>
+
+  <li>
+    <strong>Naslov:</strong>
+    <%= @kategorija.naslov %>
+  </li>
+
+  <li>
+    <strong>Opis:</strong>
+    <%= @kategorija.opis %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: kategorija_path(@conn, :edit, @kategorija) %>
+<%= link "Back", to: kategorija_path(@conn, :index) %>

@@ -1,0 +1,30 @@
+<h2>Listing brojevi</h2>
+
+<table class="ui striped table">
+  <thead>
+    <tr>
+      <th>Naslov</th>
+      <th>Slika</th>
+      <th>Fajl</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for broj <- @brojevi do %>
+    <tr>
+      <td><%= broj.naslov %></td>
+      <td><%= broj.slika %></td>
+      <td><%= broj.fajl %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: broj_path(@conn, :show, broj), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: broj_path(@conn, :edit, broj), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: broj_path(@conn, :delete, broj), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New broj", to: broj_path(@conn, :new) %>

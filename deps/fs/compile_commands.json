@@ -1,0 +1,14 @@
+[
+{ "file"      : "/Users/ensar/projects/ex_elasr/deps/fs/c_src/mac/cli.c"
+, "directory" : "/Users/ensar/projects/ex_elasr/deps/fs"
+, "command"   : "clang -c -Wno-deprecated-declarations -g -Wall -fPIC -MMD -I\"/usr/local/Cellar/erlang/19.2/lib/erlang/lib/erl_interface-3.9.2/include\" -I\"/usr/local/Cellar/erlang/19.2/lib/erlang/erts-8.2/include\" /Users/ensar/projects/ex_elasr/deps/fs/c_src/mac/cli.c -o /Users/ensar/projects/ex_elasr/deps/fs/c_src/mac/cli.o"
+},
+{ "file"      : "/Users/ensar/projects/ex_elasr/deps/fs/c_src/mac/compat.c"
+, "directory" : "/Users/ensar/projects/ex_elasr/deps/fs"
+, "command"   : "clang -c -Wno-deprecated-declarations -g -Wall -fPIC -MMD -I\"/usr/local/Cellar/erlang/19.2/lib/erlang/lib/erl_interface-3.9.2/include\" -I\"/usr/local/Cellar/erlang/19.2/lib/erlang/erts-8.2/include\" /Users/ensar/projects/ex_elasr/deps/fs/c_src/mac/compat.c -o /Users/ensar/projects/ex_elasr/deps/fs/c_src/mac/compat.o"
+},
+{ "file"      : "/Users/ensar/projects/ex_elasr/deps/fs/c_src/mac/main.c"
+, "directory" : "/Users/ensar/projects/ex_elasr/deps/fs"
+, "command"   : "clang -c -Wno-deprecated-declarations -g -Wall -fPIC -MMD -I\"/usr/local/Cellar/erlang/19.2/lib/erlang/lib/erl_interface-3.9.2/include\" -I\"/usr/local/Cellar/erlang/19.2/lib/erlang/erts-8.2/include\" /Users/ensar/projects/ex_elasr/deps/fs/c_src/mac/main.c -o /Users/ensar/projects/ex_elasr/deps/fs/c_src/mac/main.o"
+}
+]

@@ -1,0 +1,6 @@
+<h2>New autor</h2>
+
+<%= render "form.html", changeset: @changeset,
+                        action: autor_path(@conn, :create) %>
+
+<%= link "Back", to: autor_path(@conn, :index) %>

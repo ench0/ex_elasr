@@ -1,0 +1,33 @@
+<h2>Show komentar</h2>
+
+<ul>
+
+  <li>
+    <strong>Komentar:</strong>
+    <%= @komentar.komentar %>
+  </li>
+
+  <li>
+    <strong>Email:</strong>
+    <%= @komentar.email %>
+  </li>
+
+  <li>
+    <strong>Meta:</strong>
+    <%= @komentar.meta %>
+  </li>
+
+  <li>
+    <strong>Tekst:</strong>
+    <%= @komentar.tekst_id %>
+  </li>
+
+  <li>
+    <strong>Timestamps:</strong>
+    <%= @komentar.timestamps %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: komentar_path(@conn, :edit, @komentar) %>
+<%= link "Back", to: komentar_path(@conn, :index) %>

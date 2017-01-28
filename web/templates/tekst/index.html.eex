@@ -1,0 +1,51 @@
+<h2>Svi tekstovi</h2>
+
+<table class="ui striped table">
+  <thead>
+    <tr>
+      <th>Naslov</th>
+      <th>Ukratko</th>
+      <th>Tekst</th>
+      <th>Autor</th>
+      <th>Kategorija</th>
+      <th>Slike</th>
+      <th>Fajlovi</th>
+      <th>Slug</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for tekst <- @tekstovi do %>
+    <tr>
+      <td><%= tekst.naslov %></td>
+      <td><%= tekst.ukratko %></td>
+      <td><%= tekst.tekst %></td>
+      <td><%= tekst.autor_id %></td>
+      <td><%= tekst.kategorija_id %></td>
+      <td>Naslov: <%= tekst.slike["naslov"] %>, URL: <%= tekst.slike["url"] %></td>
+      <td><%= tekst.fajlovi %></td>
+      <td><%= tekst.slug %></td>
+
+      <td class="right aligned">
+        <%= link to: tekst_path(@conn, :show, tekst.slug), class: "circular ui primary icon button", data_content: "Prikaži" do %>
+          <i class="icon user"></i>
+        <% end %>
+        <%= link to: tekst_path(@conn, :edit, tekst), class: "circular ui positive icon button", data_content: "Promijeni" do %>
+          <i class="icon edit"></i>
+        <% end %>
+        <%= link to: tekst_path(@conn, :delete, tekst), method: :delete, data: [confirm: "Are you sure?"], class: "circular ui negative icon button", data_content: "Izbriši" do %>
+          <i class="icon remove"></i>
+        <% end %>
+      </td>
+
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+  <div class="ui basic segment">
+    <%= link to: tekst_path(@conn, :new), class: "ui positive button" do %>
+      <i class="icon user"></i>Novi tekst
+    <% end %>
+  </div>

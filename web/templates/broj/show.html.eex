@@ -1,0 +1,23 @@
+<h2>Show broj</h2>
+
+<ul>
+
+  <li>
+    <strong>Naslov:</strong>
+    <%= @broj.naslov %>
+  </li>
+
+  <li>
+    <strong>Slika:</strong>
+    <%= @broj.slika %>
+  </li>
+
+  <li>
+    <strong>Fajl:</strong>
+    <%= @broj.fajl %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: broj_path(@conn, :edit, @broj) %>
+<%= link "Back", to: broj_path(@conn, :index) %>

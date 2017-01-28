@@ -1,0 +1,6 @@
+<h2>Promijeni tekst: <%= @tekst.naslov %></h2>
+
+<%= render "form-edit.html", changeset: @changeset, tekst: @tekst, conn: @conn,
+                        action: tekst_path(@conn, :update, @tekst) %>
+
+<%= link "Back", to: tekst_path(@conn, :index) %>

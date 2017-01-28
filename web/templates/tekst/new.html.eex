@@ -1,0 +1,4 @@
+<h2>Novi tekst</h2>
+
+<%= render "form-new.html", changeset: @changeset, conn: @conn,
+                        action: tekst_path(@conn, :create) %>

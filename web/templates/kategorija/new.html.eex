@@ -1,0 +1,6 @@
+<h2>New kategorija</h2>
+
+<%= render "form.html", changeset: @changeset,
+                        action: kategorija_path(@conn, :create) %>
+
+<%= link "Back", to: kategorija_path(@conn, :index) %>

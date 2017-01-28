@@ -1,0 +1,52 @@
+<h2>Show tekst</h2>
+
+<ul>
+
+  <li>
+    <strong>Naslov:</strong>
+    <%= @tekst.naslov %>
+  </li>
+
+  <li>
+    <strong>Ukratko:</strong>
+    <%= @tekst.ukratko %>
+  </li>
+
+  <li>
+    <strong>Tekst:</strong>
+    <%= @tekst.tekst %>
+  </li>
+
+  <li>
+    <strong>Autor:</strong>
+    <%= @tekst.autor_id %>
+  </li>
+
+  <li>
+    <strong>Kategorija:</strong>
+    <%= @tekst.kategorija_id %>
+  </li>
+
+  <li>
+    <ul>
+    <strong>Slike:</strong>
+    <%= for slika <- @tekst.slike do %>
+      <li><%= elem(slika,0) %>: <%= elem(slika,1) %></li>
+    <% end %>
+    </ul>
+  </li>
+
+  <li>
+    <strong>Fajlovi:</strong>
+    <%= @tekst.fajlovi %>
+  </li>
+
+  <li>
+    <strong>Slug:</strong>
+    <%= @tekst.slug %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: tekst_path(@conn, :edit, @tekst) %>
+<%= link "Back", to: tekst_path(@conn, :index) %>

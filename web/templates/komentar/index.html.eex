@@ -1,0 +1,34 @@
+<h2>Listing komentari</h2>
+
+<table class="ui striped table">
+  <thead>
+    <tr>
+      <th>Komentar</th>
+      <th>Email</th>
+      <th>Meta</th>
+      <th>Tekst</th>
+      <th>Timestamps</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for komentar <- @komentari do %>
+    <tr>
+      <td><%= komentar.komentar %></td>
+      <td><%= komentar.email %></td>
+      <td><%= komentar.meta %></td>
+      <td><%= komentar.tekst_id %></td>
+      <td><%= komentar.timestamps %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: komentar_path(@conn, :show, komentar), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: komentar_path(@conn, :edit, komentar), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: komentar_path(@conn, :delete, komentar), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New komentar", to: komentar_path(@conn, :new) %>

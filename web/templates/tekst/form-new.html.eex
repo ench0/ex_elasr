@@ -1,0 +1,47 @@
+<%= form_for @changeset, @action, fn f -> %>
+  <%= if @changeset.action do %>
+    <div class="ui negative message transition">
+      <p>Nešto nije u redu, pogledajte ispod.</p>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= label f, :naslov, class: "control-label" %>
+    <%= text_input f, :naslov, class: "form-control" %>
+    <%= error_tag f, :naslov %>
+  </div>
+
+  <%= for no <- 1..4 do %>
+  <div>
+    <% no = Integer.to_string(no) %>
+    <% slika_atom_naslov = String.to_atom("slika_naslov_"<>no) %>
+    <% slika_atom_url = String.to_atom("slika_url_"<>no) %>
+    <% slika_value = "" %>
+    <%= label f, slika_atom_naslov %>
+    <%= text_input f, slika_atom_naslov, value: slika_value %>
+    <%= error_tag f, slika_atom_naslov %>
+    <%= label f, slika_atom_url %>
+    <%= text_input f, slika_atom_url, value: slika_value %>
+    <%= error_tag f, slika_atom_url %>
+  </div>
+  <% end %>
+
+  <%= hidden_input f, :tekst, value: "none" %>
+  <%= error_tag f, :tekst %>
+  <%= hidden_input f, :slike, value: "none" %>
+  <%= error_tag f, :slike %>
+  <%= hidden_input f, :slug, value: "slug" %>
+  <%#= error_tag f, :slug %>
+
+
+  <!-- submit -->
+  <div class="ui basic segment">
+    <%= submit class: "ui positive button" do %>
+      <i class="icon user"></i>U redu
+    <% end %>
+    <%= link to: tekst_path(@conn, :index), class: "ui red button" do %>
+      <i class="icon user"></i>Odustani
+    <% end %>
+  </div>
+
+<% end %>
